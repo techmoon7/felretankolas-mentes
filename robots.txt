@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techmoon7.github.io/felretankolas-mentes/sitemap.xml
