@@ -1,5 +1,5 @@
 :root {
-  --bg: #f3f5f6;
+  --bg: #f5f7f5;
   --panel: #ffffff;
   --ink: #12171b;
   --muted: #5f6b75;
@@ -50,7 +50,7 @@ a {
   gap: 26px;
   padding: 14px clamp(18px, 4vw, 58px);
   border-bottom: 1px solid rgba(220, 227, 232, 0.85);
-  background: rgba(243, 245, 246, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
 }
 
@@ -154,25 +154,25 @@ a {
 }
 
 .secondary-btn {
-  border: 1px solid rgba(255, 255, 255, 0.30);
+  border: 1px solid var(--line);
   padding: 0 18px;
-  background: rgba(255, 255, 255, 0.10);
-  color: #fff;
+  background: #fff;
+  color: var(--ink);
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
-  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 540px);
+  gap: clamp(28px, 5vw, 56px);
   align-items: center;
-  min-height: calc(100vh - 75px);
-  padding: clamp(52px, 8vw, 96px) clamp(18px, 5vw, 72px);
+  min-height: auto;
+  padding: clamp(42px, 7vw, 78px) clamp(18px, 5vw, 72px);
   background:
-    radial-gradient(circle at 76% 24%, rgba(216, 32, 51, 0.30), transparent 30%),
-    linear-gradient(120deg, rgba(18, 23, 27, 0.96), rgba(29, 37, 43, 0.84)),
-    url("https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1900&q=82")
+    linear-gradient(120deg, rgba(255, 255, 255, 0.96), rgba(238, 244, 240, 0.94)),
+    url("https://images.unsplash.com/photo-1644246905181-c3753e9a82bd?auto=format&fit=crop&w=1900&q=82")
       center/cover;
-  color: #fff;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
 }
 
 .hero-copy {
@@ -216,7 +216,7 @@ h3 {
 
 .lead {
   max-width: 700px;
-  color: rgba(255, 255, 255, 0.84);
+  color: var(--muted);
   font-size: clamp(18px, 2.2vw, 23px);
 }
 
@@ -236,16 +236,17 @@ h3 {
 }
 
 .hero-stats span {
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--muted);
+  box-shadow: 0 12px 28px rgba(18, 23, 27, 0.06);
 }
 
 .hero-stats strong {
   display: block;
-  color: #fff;
+  color: var(--ink);
   font-size: 22px;
 }
 
@@ -255,9 +256,9 @@ h3 {
 
 .hero-visual img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(18, 23, 27, 0.10);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
@@ -299,6 +300,7 @@ h3 {
 .faq-section,
 .process,
 .trust-section,
+.reviews-section,
 .footer {
   width: min(1180px, calc(100% - 36px));
   margin-inline: auto;
@@ -548,15 +550,38 @@ h3 {
 }
 
 .equipment-visual {
+  position: relative;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
-.equipment-visual svg {
+.equipment-visual img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.equipment-note {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  box-shadow: 0 14px 34px rgba(18, 23, 27, 0.18);
+}
+
+.equipment-note strong,
+.equipment-note span {
+  display: block;
+}
+
+.equipment-note span {
+  color: var(--muted);
 }
 
 .trust-section {
@@ -640,6 +665,33 @@ h3 {
   font-size: 20px;
 }
 
+.reviews-section {
+  padding: 0 0 64px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.review-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(18, 23, 27, 0.06);
+}
+
+.review-grid p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.review-grid strong {
+  color: var(--ink);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -700,7 +752,8 @@ h3 {
   .problem-grid,
   .content-columns,
   .hero-stats,
-  .image-band {
+  .image-band,
+  .review-grid {
     grid-template-columns: 1fr;
   }
 
